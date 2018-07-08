@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+* {
+	text-align: center;
+	margin: auto;
+	padding: 15px;
+}
+
+body {
+	background-color: #eaf2ff;
+}
