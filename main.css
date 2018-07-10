@@ -11,3 +11,7 @@
 body {
 	background-color: #eaf2ff;
 }
+
+.js-search-form input:focus {
+	outline: 5 px dotted rgb(176, 56, 245);
+}
