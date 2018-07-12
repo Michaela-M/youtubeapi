@@ -14,8 +14,18 @@ function getDataFromApi(searchTerm, callback) {
 
 function renderResults(result) {
 	console.log(`'renderResults' ran`);
-  return `
-    <img class='results' src='${result.snippet.thumbnails.medium.url}' alt='${result.snippet.title}'>`;
+	if(result.id.kind === "youtube#video") {
+	  return `
+	    <a href='https://www.youtube.com/embed/${result.id.videoId}' target="_blank" aria-label='YouTube Video'>
+	    <img src="${result.snippet.thumbnails.medium.url}" alt='${result.snippet.title}' class='results'>
+	    </a>`;
+	} else if(result.id.kind === "youtube#channel") {
+		return `
+		<a href="https://www.youtube.com/user/${result.snippet.channelTitle}" 
+		target="_blank" aria-label='YouTube Channel'>
+		<img class='results' src='${result.snippet.thumbnails.medium.url}' 
+		alt='${result.snippet.title}'></a>`;
+	}
 }
 
 function displayYouTubeSearchData(data) {
